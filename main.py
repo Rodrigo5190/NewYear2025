@@ -1,4 +1,7 @@
 import tkinter as tk
+
+from tkinter import ttk
+
 from PIL import Image, ImageTk
 from tkinter import Toplevel, messagebox
 from src.spell_check import *
@@ -61,8 +64,12 @@ background_photo = ImageTk.PhotoImage(background_image.resize((800, 600)))
 bg_label = tk.Label(root, image=background_photo)
 bg_label.place(relwidth=1, relheight=1)
 
+# Create a style for the button
+style = ttk.Style()
+style.configure('Rounded.TButton', font=('Arial', 12), borderwidth=0, relief='flat',  foreground='black')
+
 # Add a button on the background
-open_dialog_button = tk.Button(root, text="Send Message", font=("Arial", 14), command=open_message_dialog, bg="white", fg="black")
+open_dialog_button = ttk.Button(root, text="Send Message", style='Rounded.TButton', command=open_message_dialog)
 open_dialog_button.place(relx=0.5, rely=0.9, anchor="center")
 
 # Run the Tkinter event loop
